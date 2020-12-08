@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <div id="petsRow" class="row">
+      <div id="buildingRow" class="row">
         <!-- PETS LOAD HERE -->
       </div>
     </div>
@@ -36,12 +36,26 @@
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="panel panel-default panel-building">
           <div class="panel-heading">
-            <h3 class="panel-title">Scrappy</h3>
+            <h3 class="panel-title"></h3>
           </div>
           <div class="panel-body">
             <strong>Location</strong>: <span class="building-location"></span><br/>
-            <strong>Operating Permit</strong>: <span class="operating-permit">3</span><br/>
-            <strong>Conformity Certificate</strong>: <span class="conformity-certificate"></span><br/><br/>
+
+            <label for="operating-permit"><strong>Operating Permit</strong></label>
+            <input type="text" name="operating-permit" class="operating-permit custmon-input" placeholder="Operating Permit"><br>
+
+            <label for="conformity-certificate"><strong>Conformity Certificate</strong></label>
+            <input type="text" name="conformity-certificate" class="custmon-input conformity-certificate" placeholder="Conformity Certificate"><br>
+
+            <label for="door-tested">Door Test</label>
+            <input type="checkbox" name="door-tested" class="door-tested"><br>
+
+            <label for="cable-tested">Cable Test</label>
+            <input type="checkbox" name="cable-tested" class="cable-tested"><br>
+
+            <label for="break-tested">Break Test</label>
+            <input type="checkbox" name="break-tested" class="break-tested"><br>
+
             <button class="btn btn-default btn-homologue" type="button" data-id="0">Homologue</button>
           </div>
         </div>

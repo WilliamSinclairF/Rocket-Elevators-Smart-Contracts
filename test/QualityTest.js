@@ -5,7 +5,7 @@ contract("QualityTest", accounts => {
     const qualityTest = await QualityTest.deployed();
 
     // Get myString from public variable getter
-    await qualityTest.createContract(1, true, "CGO", "PPCS");
+    await qualityTest.secure(1, true, "CGO", "PPCS", "fgdgsdfgsdf");
 
     const storedTest = await qualityTest.getBuilding(1);
     console.log(storedTest);

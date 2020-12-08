@@ -1,0 +1,286 @@
+[
+    {
+        "building": {
+            "id": 1,
+            "location": "725 Lebourgneuf, Lévis, QC",
+            "batteries": [{
+                "operatingPermit": "",
+                "columns": [
+                    {
+                        "conformityCertificate": "",
+                        "floorServed": 5,
+                        "elevators": [
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            }
+                        ]
+                    },
+                    {
+                        "conformityCertificate": "",
+                        "floorServed": 5,
+                        "elevators": [
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            }
+                        ]
+                    }
+                ]
+            }]
+        }
+    },
+    {
+        "building": {
+            "id": 2,
+            "location": "725 Lebourgneuf, Lévis, QC",
+            "batteries": [{
+                "operatingPermit": "",
+                "columns": [
+                    {
+                        "conformityCertificate": "",
+                        "floorServed": 5,
+                        "elevators": [
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            }
+                        ]
+                    },
+                    {
+                        "conformityCertificate": "",
+                        "floorServed": 5,
+                        "elevators": [
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            }
+                        ]
+                    }
+                ]
+            }]
+        }
+    },
+    {
+        "building": {
+            "id": 3,
+            "location": "725 Lebourgneuf, Lévis, QC",
+            "batteries": [{
+                "operatingPermit": "",
+                "columns": [
+                    {
+                        "conformityCertificate": "",
+                        "floorServed": 5,
+                        "elevators": [
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            }
+                        ]
+                    },
+                    {
+                        "conformityCertificate": "",
+                        "floorServed": 5,
+                        "elevators": [
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            }
+                        ]
+                    }
+                ]
+            }]
+        }
+    },
+    {
+        "building": {
+            "id": 4,
+            "location": "725 Lebourgneuf, Lévis, QC",
+            "batteries": [{
+                "operatingPermit": "",
+                "columns": [
+                    {
+                        "conformityCertificate": "",
+                        "floorServed": 5,
+                        "elevators": [
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            }
+                        ]
+                    },
+                    {
+                        "conformityCertificate": "",
+                        "floorServed": 5,
+                        "elevators": [
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            },
+                            {
+                                "productLine": "Excelium",
+                                "door": { "doorTest": "" },
+                                "cable": { "cableTest": "" },
+                                "brake": { "breakTest": "" }
+                            }
+                        ]
+                    }
+                ]
+            }]
+        }
+    }
+]
