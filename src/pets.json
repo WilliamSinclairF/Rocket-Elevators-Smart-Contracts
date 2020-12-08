@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "name": "Josephina",
+    "name": "Frieda",
     "picture": "images/scottish-terrier.jpeg",
     "age": 3,
     "breed": "Scottish Terrier",
@@ -9,7 +9,7 @@
   },
   {
     "id": 1,
-    "name": "Alfredo",
+    "name": "Gina",
     "picture": "images/scottish-terrier.jpeg",
     "age": 3,
     "breed": "Scottish Terrier",
@@ -17,7 +17,7 @@
   },
   {
     "id": 2,
-    "name": "Bob",
+    "name": "Collins",
     "picture": "images/french-bulldog.jpeg",
     "age": 2,
     "breed": "French Bulldog",
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "name": "Bobby",
+    "name": "Melissa",
     "picture": "images/boxer.jpeg",
     "age": 2,
     "breed": "Boxer",
@@ -33,7 +33,7 @@
   },
   {
     "id": 4,
-    "name": "Bobby",
+    "name": "Jeanine",
     "picture": "images/french-bulldog.jpeg",
     "age": 2,
     "breed": "French Bulldog",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "name": "Bobby",
+    "name": "Elvia",
     "picture": "images/french-bulldog.jpeg",
     "age": 3,
     "breed": "French Bulldog",
@@ -49,7 +49,7 @@
   },
   {
     "id": 6,
-    "name": "Bobby",
+    "name": "Latisha",
     "picture": "images/golden-retriever.jpeg",
     "age": 3,
     "breed": "Golden Retriever",
