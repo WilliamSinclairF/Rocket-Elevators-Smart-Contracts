@@ -5,21 +5,16 @@ contract("QualityTest", accounts => {
     const qualityTest = await QualityTest.deployed();
 
     // Get myString from public variable getter
-    await qualityTest.secure(1, true, "CGO", "PPCS", "fgdgsdfgsdf");
+    await qualityTest.secure(1, true, "CGO", "PPCS", "some address");
 
-    const storedTest = await qualityTest.getBuilding(1);
-    console.log(storedTest);
+    const storedTest = await qualityTest.getBuildings([1], 0);
+    console.log(storedTest[0]);
 
-    const result ="1,Passed,Passed,PPCS,Not Passed,Not Passed,Passed"
+    const result = "0xa5A18d87740FF41adA49Ef616efe8946341b2b07,1,some address,CGO,PPCS,Passed,Passed,Passed";
 
-    assert.equal(storedTest, result, "The string was not stored : " + storedTest);
+    assert.equal(storedTest[0], result, "The string was not stored : " + storedTest[0]);
   });
 });
-
-
-
-
-
 
 // const build = {
 //   id: 1,

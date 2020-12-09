@@ -15,7 +15,6 @@ contract QualityTest {
 
         // Column
         string conformityCertificate;
-        string floorServed;
 
         // Elevator
         string elevatorDoorTest;
@@ -33,7 +32,7 @@ contract QualityTest {
         string memory _buildingAddress
     ) public {
         if (isTestPassed) {
-            Building memory build = buildings[_id];
+            Building memory build;
             build.employee = msg.sender;
 
             build.id = _id;
@@ -44,14 +43,27 @@ contract QualityTest {
 
             build.conformityCertificate = _conformityCertificate;
 
-            build.buildingAddress = "Passed";
-            build.operatingPermit = "Passed";
+            build.elevatorDoorTest = "Passed";
+            build.elevatorCableTest = "Passed";
             build.elevatorBreakTest = "Passed";
+
+            buildings[_id] = build;
         }
     }
 
     function getBuilding(int _id) public view returns (Building memory) {
         return buildings[_id];
+    }
+
+    function getBuildings(int[] memory _ids) public view returns (Building[30] memory) {
+        Building[30] memory buildingList; 
+
+        for (uint i = 0; i < 30; i++) {
+            int[] memory index = _ids;
+            buildingList[i] = buildings[index[i]];
+        }
+
+        return buildingList;
     }
 }
 
