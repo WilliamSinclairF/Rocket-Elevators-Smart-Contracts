@@ -15,32 +15,27 @@ const columns = [
   {
     id: 'operatingPermit',
     label: 'Operating permit',
-    minWidth: 170,
-  },
-  {
-    id: 'operatingPermit',
-    label: 'Operating permit',
-    minWidth: 170,
+    minWidth: 100,
   },
   {
     id: 'conformityCertificate',
     label: 'Conformity certificate',
-    minWidth: 170,
+    minWidth: 100,
   },
   {
     id: 'elevatorDoorTest',
     label: 'Elevator door test',
-    minWidth: 170,
+    minWidth: 100,
   },
   {
     id: 'elevatorCableTest',
     label: 'Elevator cable test',
-    minWidth: 170,
+    minWidth: 100,
   },
   {
     id: 'elevatorBreakTest',
     label: 'Elevator break test',
-    minWidth: 170,
+    minWidth: 100,
   },
 ];
 
@@ -49,23 +44,12 @@ const useStyles = makeStyles({
     width: '100%',
   },
   container: {
-    maxHeight: 440,
+    maxHeight: '100%',
   },
 });
 
 export default function TestTable({ tests }) {
   const classes = useStyles();
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = event => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
 
   return (
     <Paper className={classes.root}>
@@ -84,38 +68,34 @@ export default function TestTable({ tests }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {tests
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map(test => {
-                return (
-                  <TableRow hover role='checkbox' tabIndex={-1} key={test.id}>
-                    {columns.map(column => {
-                      return (
-                        <>
-                          <TableCell key={column.id} align={column.align}>
-                            {test.id}
-                          </TableCell>
-                          <TableCell key={column.id} align={column.align}>
-                            {test.buildingAddress}
-                          </TableCell>
-                        </>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
+            {tests.map(test => {
+              return (
+                <TableRow key={'row' + test.id}>
+                  <TableCell key={'id' + test.id}>{test.id}</TableCell>
+                  <TableCell key={'address' + test.id}>
+                    {test.buildingAddress}
+                  </TableCell>
+                  <TableCell key={'permit' + test.id}>
+                    {test.operatingPermit}
+                  </TableCell>
+                  <TableCell key={'cert' + test.id}>
+                    {test.conformityCertificate}
+                  </TableCell>
+                  <TableCell key={'door' + test.id}>
+                    {test.elevatorDoorTest}
+                  </TableCell>
+                  <TableCell key={'cable' + test.id}>
+                    {test.elevatorCableTest}
+                  </TableCell>
+                  <TableCell key={'break' + test.id}>
+                    {test.elevatorBreakTest}
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component='div'
-        count={tests.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
     </Paper>
   );
 }

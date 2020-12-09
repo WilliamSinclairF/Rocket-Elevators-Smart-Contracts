@@ -43,19 +43,18 @@ contract QualityTest {
       string memory _elevatorBreakTest
       ) public {
     testCount ++;
-    testList.push(Test(
-        testCount,
-        _testPassed, 
-       _buildingAddress, 
-       _operatingPermit, 
-       _conformityCertificate, 
-       _elevatorDoorTest, 
-       _elevatorCableTest, 
-       _elevatorBreakTest));
+    testList.push(Test({
+      id: testCount,
+      testPassed: _testPassed, 
+      buildingAddress: _buildingAddress, 
+      operatingPermit: _operatingPermit, 
+      conformityCertificate: _conformityCertificate, 
+      elevatorDoorTest: _elevatorDoorTest, 
+      elevatorCableTest: _elevatorCableTest, 
+      elevatorBreakTest: _elevatorBreakTest}));
     emit TestCreated(testCount, _testPassed, _buildingAddress, _operatingPermit, _conformityCertificate);
   }
     function getTests() public view returns(Test[] memory) {
     return testList;
 }
-
 }
