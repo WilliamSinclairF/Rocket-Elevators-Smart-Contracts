@@ -4,7 +4,7 @@ pragma experimental ABIEncoderV2;
 contract QualityTest {
     struct Building {
         // Client
-        // string clientName;
+        address employee;
 
         // Building
         int256 id;
@@ -41,6 +41,17 @@ contract QualityTest {
 
     function getBuilding(int _id) public view returns (Building memory) {
         return buildings[_id];
+    }
+
+    function getBuildings(int[] memory _ids) public view returns (Building[30] memory) {
+        Building[30] memory buildingList; 
+
+        for (uint i = 0; i < 30; i++) {
+            int[] memory index = _ids;
+            buildingList[i] = buildings[index[i]];
+        }
+
+        return buildingList;
     }
 }
 

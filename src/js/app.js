@@ -8,7 +8,7 @@ App = {
       var buildingRow = $('#buildingRow');
       var buildingTemplate = $('#buildingTemplate');
 
-      for (i = 0; i < data.length; i ++) {
+      for (i = 0; i < data.length && i <= 30; i ++) {
         buildingTemplate.find('.panel-title').text(`Building #${data[i].building.id}`);
         buildingTemplate.find('.building-location').text(data[i].building.location);
         buildingTemplate.find('.conformity-certificate').text(data[i].building.batteries[0].operatingPermit);
@@ -72,19 +72,22 @@ App = {
 
     App.contracts.QualityTest.deployed().then(instance => {
       qualityInstance = instance;
-      // let buildings = [];
+      let buildingIds = [];
 
-      // $.getJSON('../data.json', data => {
-      //   for (let i = 0; i < data.length; i++) {
-      //     console.log(data[i].building.id);
-      //     buildings.push(qualityInstance.getBuilding.call(1));
-      //   }
-      // });
+      $.getJSON('../data.json', _data => {
+        for (let i = 0; i < _data.length && i <= 30; i++) {
+          console.log(_data[i].building.id)
+          buildingIds.push(_data[i].building.id);
+        }
+      });
 
-      return buildings;
+      console.log(buildingIds);
+
+      return qualityInstance.getBuildings.call(buildingIds, 0);
     }).then(buildings => {
       for (i = 0; i < buildings.length; i++) {
         if (buildings[i].address !== '0x0000000000000000000000000000000000000000') {
+          console.log("here")
           $('.panel-building').eq(i).find('button').text('Success').attr('disabled', true);
         }
       }
@@ -124,7 +127,7 @@ App = {
           // Execute adopt as a transaction by sending account
           return qualityInstance.secure(buildingId, isTestPassing, _operatingPermit, _conformityCertificate , _buildingAddress, {from: account});
         }).then(result => {
-          return App.markAdopted();
+          return App.markSecure();
         }).catch(err => {
           console.log(err.message);
         });
