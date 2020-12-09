@@ -1,9 +1,9 @@
-import React from "react";
-import { DrizzleContext } from "@drizzle/react-plugin";
-import { Drizzle } from "@drizzle/store";
-import drizzleOptions from "./drizzleOptions";
-import MyComponent from "./MyComponent";
-import "./App.css";
+import React from 'react';
+import { DrizzleContext } from '@drizzle/react-plugin';
+import { Drizzle } from '@drizzle/store';
+import drizzleOptions from './drizzleOptions';
+import QualityTests from './Components/QualityTests';
+import './App.css';
 
 const drizzle = new Drizzle(drizzleOptions);
 
@@ -15,16 +15,14 @@ const App = () => {
           const { drizzle, drizzleState, initialized } = drizzleContext;
 
           if (!initialized) {
-            return "Loading..."
+            return 'Loading...';
           }
 
-          return (
-            <MyComponent drizzle={drizzle} drizzleState={drizzleState} />
-          )
+          return <QualityTests drizzle={drizzle} drizzleState={drizzleState} />;
         }}
       </DrizzleContext.Consumer>
     </DrizzleContext.Provider>
   );
-}
+};
 
 export default App;
