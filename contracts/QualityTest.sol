@@ -2,15 +2,13 @@ pragma solidity >=0.4.22 <0.8.0;
 pragma experimental ABIEncoderV2;
 
 contract QualityTest {
-    uint256 public testCount = 0; 
-    mapping(int => Building) public buildings;
-    mapping(int => address) public employee;
-
+    Building[] public buildings;
 
     struct Building {
+        address employee;
+
         // Building
-        int256 id;
-        string buildingAddress;
+        uint id;
 
         // Battery
         string operatingPermit;
@@ -19,26 +17,28 @@ contract QualityTest {
         string conformityCertificate;
 
         // Elevator
-        string elevatorDoorTest;
-        string elevatorCableTest;
-        string elevatorBreakTest;
+        bool isDoorTest;
+        bool isCableTest;
+        bool isBreakTest;
     }
 
-    function createContract(int _id, bool isTestPassed, string memory _operatingPermit, string memory _conformityCertificate, string memory _buildingAddress) public {
+    function createContract(uint _id, bool isTestPassed, string memory _operatingPermit, string memory _conformityCertificate) public {
         if (isTestPassed) {
-            testCount++;
-            buildings[_id].id = _id;
-            buildings[_id].buildingAddress = _buildingAddress;
-            buildings[_id].operatingPermit = _operatingPermit;
-            buildings[_id].conformityCertificate = _conformityCertificate;
-            buildings[_id].elevatorDoorTest = "Passed";
-            buildings[_id].elevatorCableTest = "Passed";
-            buildings[_id].elevatorBreakTest = "Passed";
+            buildings.push(Building({
+                id: _id,
+                employee: msg.sender,
+
+                operatingPermit: _operatingPermit,
+                conformityCertificate: _conformityCertificate,
+                isDoorTest: true,
+                isCableTest: true,
+                isBreakTest: true
+            }));
         }
     }
 
-    function getBuilding(int _id) public view returns (Building memory) {
-        return buildings[_id];
+    function getBuilding() public view returns (Building[] memory) {
+        return buildings;
     }
 }
 

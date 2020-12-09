@@ -1,0 +1,97 @@
+const QualityTest = artifacts.require("./QualityTest.sol");
+
+contract("QualityTest", accounts => {
+  it("should store the string 'Hey there!'", async () => {
+    const qualityTest = await QualityTest.deployed();
+
+    // console.log(qualityTest.constructor._json);
+
+    // Get myString from public variable getter
+    // await qualityTest.createContract(1, true, "CGO", "PPCS");
+    // await qualityTest.createContract(80);
+
+    const storedTest = await qualityTest.getBuilding(78);
+    console.log(storedTest);
+
+    const result = "1,some address,CGO,PPCS,Passed,Passed,Passed";
+
+    assert.equal(storedTest, result, "The string was not stored : " + storedTest);
+  });
+});
+
+// const build = {
+//   id: 1,
+//   buildingAddress: {
+//     buildingName: "CodeBoxx Castle",
+//     numberStreet: "725 Lebourgneuf",
+//     city: "Levis",
+//     state: "QC"
+//   },
+//   batteries: [
+//     {
+//       operatingPermit: "",
+//       columns: [
+//         {
+//           conformityCertificate: "",
+//           floorServed: 5,
+//           elevators: [
+//             {
+//               productLine: "Excelium",
+//               doorTest: "null",
+//               cableTest: "null",
+//               breakTest: "null"
+//             },
+//             {
+//               productLine: "Excelium",
+//               doorTest: "null",
+//               cableTest: "null",
+//               breakTest: "null"
+//             },
+//             {
+//               productLine: "Excelium",
+//               doorTest: "null",
+//               cableTest: "null",
+//               breakTest: "null"
+//             },
+//             {
+//               productLine: "Excelium",
+//               doorTest: "null",
+//               cableTest: "null",
+//               breakTest: "null"
+//             },
+//           ]
+//         },
+//         {
+//           conformityCertificate: "",
+//           floorServed: 5,
+//           elevators: [
+//             {
+//               productLine: "Excelium",
+//               doorTest: "null",
+//               cableTest: "null",
+//               breakTest: "null"
+//             },
+//             {
+//               productLine: "Excelium",
+//               doorTest: "null",
+//               cableTest: "null",
+//               breakTest: "null"
+//             },
+//             {
+//               productLine: "Excelium",
+//               doorTest: "null",
+//               cableTest: "null",
+//               breakTest: "null"
+//             },
+//             {
+//               productLine: "Excelium",
+//               doorTest: "null",
+//               cableTest: "null",
+//               breakTest: "null"
+//             },
+//           ]
+//         }
+//       ]
+//     }
+//   ]
+// }

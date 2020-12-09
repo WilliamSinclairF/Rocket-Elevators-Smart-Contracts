@@ -131,6 +131,7 @@ export default ({ drizzle, drizzleState }) => {
         drizzleState={drizzleState}
         contract='QualityTest'
         method='createContract'
+        sendArgs={{gas: 600000000}}
         toUtf8
       />
     </div>
