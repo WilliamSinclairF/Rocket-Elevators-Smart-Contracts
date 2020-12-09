@@ -6,12 +6,19 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
 const columns = [
-  { id: 'ID', label: 'ID', minWidth: 100 },
-  { id: 'buildingAddress', label: 'Building address', minWidth: 170 },
+  {
+    id: 'id',
+    label: 'ID',
+    minWidth: 100
+  },
+  {
+    id: 'buildingAddress',
+    label: 'Building address',
+    minWidth: 170
+  },
   {
     id: 'operatingPermit',
     label: 'Operating permit',
@@ -48,7 +55,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TestTable({ tests }) {
+export default function BuildingTable({ buildings }) {
   const classes = useStyles();
 
   return (
@@ -68,27 +75,27 @@ export default function TestTable({ tests }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {tests.map(test => {
+            {buildings.map(build => {
               return (
-                <TableRow key={'row' + test.id}>
-                  <TableCell key={'id' + test.id}>{test.id}</TableCell>
-                  <TableCell key={'address' + test.id}>
-                    {test.buildingAddress}
+                <TableRow key={'row' + build.id}>
+                  <TableCell key={'id' + build.id}>{build.id}</TableCell>
+                  <TableCell key={'address' + build.id}>
+                    {build.buildingAddress}
                   </TableCell>
-                  <TableCell key={'permit' + test.id}>
-                    {test.operatingPermit}
+                  <TableCell key={'permit' + build.id}>
+                    {build.operatingPermit}
                   </TableCell>
-                  <TableCell key={'cert' + test.id}>
-                    {test.conformityCertificate}
+                  <TableCell key={'cert' + build.id}>
+                    {build.conformityCertificate}
                   </TableCell>
-                  <TableCell key={'door' + test.id}>
-                    {test.elevatorDoorTest}
+                  <TableCell key={'door' + build.id}>
+                    {build.elevatorDoorTest}
                   </TableCell>
-                  <TableCell key={'cable' + test.id}>
-                    {test.elevatorCableTest}
+                  <TableCell key={'cable' + build.id}>
+                    {build.elevatorCableTest}
                   </TableCell>
-                  <TableCell key={'break' + test.id}>
-                    {test.elevatorBreakTest}
+                  <TableCell key={'break' + build.id}>
+                    {build.elevatorBreakTest}
                   </TableCell>
                 </TableRow>
               );

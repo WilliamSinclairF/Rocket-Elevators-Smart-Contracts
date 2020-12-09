@@ -1,6 +1,6 @@
 import React from 'react';
 import { newContextComponents } from '@drizzle/react-components';
-import TestTable from './TestTable';
+import BuildingTable from './BuildingTable';
 
 const { ContractData, ContractForm } = newContextComponents;
 
@@ -8,12 +8,12 @@ export default ({ drizzle, drizzleState }) => {
   // destructure drizzle and drizzleState from props
   return (
     <>
-      <strong>Create Test: </strong>
+      <strong>Create Quality Test: </strong>
       <ContractForm
         drizzle={drizzle}
         drizzleState={drizzleState}
         contract='QualityTest'
-        method='createTest'
+        method='createQualityTest'
         methodArgs={{ from: drizzleState.accounts[0] }}
         sendArgs={{ gas: 6721975 }}
       />
@@ -22,8 +22,8 @@ export default ({ drizzle, drizzleState }) => {
         drizzle={drizzle}
         drizzleState={drizzleState}
         contract='QualityTest'
-        method='getTests'
-        render={tests => <TestTable tests={tests} />}
+        method='getBuildings'
+        render={buildings => <BuildingTable buildings={buildings} />}
         utf8
       />
     </>
