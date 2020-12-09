@@ -5,12 +5,12 @@ contract("QualityTest", accounts => {
     const qualityTest = await QualityTest.deployed();
 
     // Get myString from public variable getter
-    await qualityTest.createContract(1, true, "CGO", "PPCS");
+    await qualityTest.createContract(1, true, "CGO", "PPCS", "some address");
 
     const storedTest = await qualityTest.getBuilding(1);
     console.log(storedTest);
 
-    const result ="1,Passed,Passed,PPCS,Not Passed,Not Passed,Passed"
+    const result = "1,some address,CGO,PPCS,Passed,Passed,Passed";
 
     assert.equal(storedTest, result, "The string was not stored : " + storedTest);
   });

@@ -15,7 +15,6 @@ contract QualityTest {
 
         // Column
         string conformityCertificate;
-        string floorServed;
 
         // Elevator
         string elevatorDoorTest;
@@ -23,45 +22,19 @@ contract QualityTest {
         string elevatorBreakTest;
     }
 
-
     mapping(int => address) public employee;
     mapping(int => Building) public buildings;
 
-    constructor() public {
-        buildings[1] = Building({
-            id: 1,
-            buildingAddress: "725 Lebourgneuf, Lévis, QC",
-
-            operatingPermit: "Not Permit",
-
-            conformityCertificate: "No Certificate",
-            floorServed: "5",
-
-            elevatorDoorTest: "Not Passed",
-            elevatorCableTest: "Not Passed",
-            elevatorBreakTest: "Not Passed"
-        });
-    }
-
-    // function addBuilding(int _id, string[9]) public {
-        // buildings[_id].clientName               = string[1];
-        // buildings[_id].buildingAddress          = string[2];
-        // buildings[_id].operatingPermit          = string[3];
-        // buildings[_id].conformityCertificate    = string[4];
-        // buildings[_id].floorServed              = string[5];
-        // buildings[_id].elevatorDoorTest         = string[6];
-        // buildings[_id].elevatorCableTest        = string[7];
-        // buildings[_id].elevatorBreakTest        = string[8];
-    // }
-
-    function createContract(int _id, bool isTestPassed, string memory _operatingPermit, string memory _conformityCertificate) public {
-        employee[_id] = msg.sender;
-        buildings[_id].operatingPermit = _operatingPermit;
-        buildings[_id].conformityCertificate = _conformityCertificate;
-
+    function createContract(int _id, bool isTestPassed, string memory _operatingPermit, string memory _conformityCertificate, string memory _buildingAddress) public {
         if (isTestPassed) {
-            buildings[_id].buildingAddress = "Passed";
-            buildings[_id].operatingPermit = "Passed";
+            employee[_id] = msg.sender;
+
+            buildings[_id].id = _id;
+            buildings[_id].buildingAddress = _buildingAddress;
+            buildings[_id].operatingPermit = _operatingPermit;
+            buildings[_id].conformityCertificate = _conformityCertificate;
+            buildings[_id].elevatorDoorTest = "Passed";
+            buildings[_id].elevatorCableTest = "Passed";
             buildings[_id].elevatorBreakTest = "Passed";
         }
     }
