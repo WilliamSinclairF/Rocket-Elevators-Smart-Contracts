@@ -42,7 +42,9 @@ export default function QualityTestTable({ tests }) {
             {descOrderTests.map(test => {
               return (
                 <TableRow key={'row' + test.id}>
-                  <TableCell key={'id' + test.id}>{test.id}</TableCell>
+                  <TableCell key={'id' + test.id}>
+                    {test.id}
+                  </TableCell>
                   <TableCell key={'passed' + test.id}>
                     {test.testPassed ? 'Test passed' : 'Test failed'}
                   </TableCell>
