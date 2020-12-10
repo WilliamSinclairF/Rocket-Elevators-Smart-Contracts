@@ -2,12 +2,12 @@ import React from 'react';
 import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
-import QualityTestsWithDrizzle from './Components/QualityTestsWithDrizzle';
-import './App.css';
-import { CircularProgress, Container, Typography } from '@material-ui/core';
-import store from './middleware/middleware';
+import QualityTestsWithDrizzle from './Components/QualityTests/QualityTestsWithDrizzle';
 import { ToastContainer } from 'react-toastify';
+import store from './middleware/middleware';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from './Components/shared/Loading';
+import './App.css';
 
 const drizzle = new Drizzle(drizzleOptions, store);
 
@@ -19,27 +19,7 @@ const App = () => {
           const { drizzle, drizzleState, initialized } = drizzleContext;
 
           if (!initialized) {
-            return (
-              <Container>
-                <Typography variant={'h3'} align={'center'}>
-                  Loading data, please wait...
-                </Typography>
-
-                <CircularProgress
-                  size={100}
-                  style={{
-                    position: 'fixed',
-                    zIndex: 999,
-                    overflow: 'show',
-                    margin: 'auto',
-                    top: 0,
-                    left: 0,
-                    bottom: 0,
-                    right: 0,
-                  }}
-                />
-              </Container>
-            );
+            return <Loading />;
           }
 
           return (

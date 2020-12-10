@@ -42,6 +42,7 @@ export default function TestInputs({ inputs, labels }) {
         {inputs.inputs.map((input, index) => {
           return input.internalType === 'bool' ? (
             <FormControlLabel
+              key={'label' + input.name}
               control={
                 <Checkbox
                   onChange={handleChange}
@@ -55,6 +56,7 @@ export default function TestInputs({ inputs, labels }) {
             />
           ) : (
             <FormControlLabel
+              key={'label' + input.name}
               control={
                 <TextField
                   name={input.name}
