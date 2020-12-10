@@ -20,20 +20,21 @@ export default ({ drizzle, drizzleState }) => {
         drizzle={drizzle}
         drizzleState={drizzleState}
         contract='QualityTest'
-        method='createTest'
+        method='createQualityTest'
         methodArgs={{ from: drizzleState.accounts[0] }}
         sendArgs={{ gas: 6721975 }}
         render={inputs => (
           <QualityTestInputs
             inputs={inputs}
             labels={[
-              'Test passed?',
+              'Id',
               'Building address',
               'Operating permit',
               'Conformity certificate',
               'Elevator door test',
               'Elevator cable test',
               'Elevator break test',
+              'Is everything secure?',
             ]}
           />
         )}
@@ -48,9 +49,9 @@ export default ({ drizzle, drizzleState }) => {
         drizzle={drizzle}
         drizzleState={drizzleState}
         contract='QualityTest'
-        method='getTests'
+        method='getBuildings'
         utf8
-        render={tests => <QualityTestTable tests={tests} />}
+        render={buildings => <QualityTestTable buildings={buildings} />}
       />
     </Container>
   );
