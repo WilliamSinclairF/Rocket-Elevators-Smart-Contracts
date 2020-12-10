@@ -7,13 +7,14 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { Box } from '@material-ui/core';
 
 const columns = [
-  {
-    id: 'id',
-    label: 'ID',
-    minWidth: 100
-  },
+  // {
+  //   id: 'id',
+  //   label: 'ID',
+  //   minWidth: 100
+  // },
   {
     id: 'buildingAddress',
     label: 'Building address',
@@ -59,50 +60,60 @@ export default function BuildingTable({ buildings }) {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
-      <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label='sticky table'>
-          <TableHead>
-            <TableRow>
-              {columns.map(column => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}>
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {buildings.map(build => {
-              return (
-                <TableRow key={'row' + build.id}>
-                  <TableCell key={'id' + build.id}>{build.id}</TableCell>
-                  <TableCell key={'address' + build.id}>
-                    {build.buildingAddress}
+    <Box>
+      <Paper className={classes.root}>
+        <TableContainer className={classes.container}>
+          <Table stickyHeader aria-label='sticky table'>
+            <TableHead>
+              <TableRow>
+                {columns.map(column => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}>
+                    {column.label}
                   </TableCell>
-                  <TableCell key={'permit' + build.id}>
-                    {build.operatingPermit}
-                  </TableCell>
-                  <TableCell key={'cert' + build.id}>
-                    {build.conformityCertificate}
-                  </TableCell>
-                  <TableCell key={'door' + build.id}>
-                    {build.elevatorDoorTest}
-                  </TableCell>
-                  <TableCell key={'cable' + build.id}>
-                    {build.elevatorCableTest}
-                  </TableCell>
-                  <TableCell key={'break' + build.id}>
-                    {build.elevatorBreakTest}
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Paper>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {buildings.map(build => {
+                return (
+                  <TableRow>
+                    {/* <TableCell key={'id' + build.id}>
+                      {build.id}
+                    </TableCell> */}
+
+                    <TableCell key={'address'}>
+                      {build.buildingAddress}
+                    </TableCell>
+
+                    <TableCell key={'permit'}>
+                      {build.operatingPermit}
+                    </TableCell>
+
+                    <TableCell key={'cert'}>
+                      {build.conformityCertificate}
+                    </TableCell>
+
+                    <TableCell key={'door'}>
+                      {build.elevatorDoorTest}
+                    </TableCell>
+
+                    <TableCell key={'cable'}>
+                      {build.elevatorCableTest}
+                    </TableCell>
+
+                    <TableCell key={'break'}>
+                      {build.elevatorBreakTest}
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Paper>
+    </Box>
   );
 }

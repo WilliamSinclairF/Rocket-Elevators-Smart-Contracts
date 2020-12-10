@@ -7,7 +7,7 @@ contract QualityTest {
   
     struct Building {
         // Building
-        uint id;
+        // uint id;
         string buildingAddress;
 
         // Battery
@@ -24,7 +24,7 @@ contract QualityTest {
 
     event BuildingCreated(
         // Building
-        uint id,
+        // uint id,
         bool testPassed,
         string buildingAddress,
         string operatingPermit,
@@ -32,19 +32,21 @@ contract QualityTest {
     );
 
     function createQualityTest(
-        uint _id,
+        // uint _id,
         string memory _buildingAddress,
         string memory _operatingPermit,
         string memory _conformityCertificate,
         string memory _elevatorDoorTest,
         string memory _elevatorCableTest,
-        string memory _elevatorBreakTest
+        string memory _elevatorBreakTest,
+        bool _isComplete
     ) public {
 
         string memory empty = "";
 
         require (
-            !doesExist(_id) &&
+            _isComplete &&
+            // !doesExist(_id) &&
             !equal(_buildingAddress, empty) &&
             !equal(_operatingPermit, empty) &&
             !equal(_conformityCertificate, empty) &&
@@ -55,7 +57,7 @@ contract QualityTest {
 
         buildingList.push(
             Building({
-                id: _id,
+                // id: _id,
                 buildingAddress: _buildingAddress,
                 operatingPermit: _operatingPermit,
                 conformityCertificate: _conformityCertificate,
@@ -65,22 +67,22 @@ contract QualityTest {
             })
         );
 
-        emit BuildingCreated(_id, true, _buildingAddress, _operatingPermit, _conformityCertificate);
+        emit BuildingCreated(true, _buildingAddress, _operatingPermit, _conformityCertificate);
     }
 
     function getBuildings() public view returns (Building[] memory) {
         return buildingList;
     }
 
-    function doesExist(uint _id) view private returns (bool) {    
-        for (uint i = 0; i < buildingList.length; i++) {
-            if (buildingList[i].id == _id) {
-                return true;
-            }
-        }
+    // function doesExist(uint _id) view private returns (bool) {    
+    //     for (uint i = 0; i < buildingList.length; i++) {
+    //         if (buildingList[i].id == _id) {
+    //             return true;
+    //         }
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 
     // The following functions where taken from here.
     // https://github.com/ethereum/dapp-bin/blob/master/library/stringUtils.sol
