@@ -10,24 +10,21 @@ import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { Typography } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
+const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
   },
 }));
 
-export default function DialogSelect() {
+export default function SelectElement({ data, prompt }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setValue(Number(event.target.value) || '');
   };
 
@@ -40,54 +37,43 @@ export default function DialogSelect() {
   };
 
   return (
-    <div>
-      <Button onClick={handleClickOpen}>Open select dialog</Button>
-      <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
-        <DialogTitle>Fill the form</DialogTitle>
+    <>
+      <Button variant='contained' color='primary' onClick={handleClickOpen}>
+        {prompt}
+      </Button>
+      <Dialog
+        disableBackdropClick
+        disableEscapeKeyDown
+        open={open}
+        onClose={handleClose}>
+        <DialogTitle>Select A Value</DialogTitle>
         <DialogContent>
-          <form className={classes.container}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="demo-dialog-native">Id</InputLabel>
-              <Select
-                native
-                value={value}
-                onChange={handleChange}
-                input={<Input id="demo-dialog-native" />}
-              >
-                <option aria-label="None" value="" />
-                <option value={10}>Ten</option>
-                <option value={20}>Twenty</option>
-                <option value={30}>Thirty</option>
-              </Select>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-              <InputLabel id="demo-dialog-select-label">Age</InputLabel>
-              <Select
-                labelId="demo-dialog-select-label"
-                id="demo-dialog-select"
-                value={age}
-                onChange={handleChange}
-                input={<Input />}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
-          </form>
+          <FormControl className={classes.formControl}>
+            <InputLabel id='demo-dialog-select-label'>ID</InputLabel>
+            <Select
+              labelId='demo-dialog-select-label'
+              id='demo-dialog-select'
+              value={value}
+              onChange={handleChange}
+              input={<Input />}>
+              <MenuItem value=''>
+                <em>None</em>
+              </MenuItem>
+              {data.map(e => (
+                <MenuItem value={e}>{e}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color='primary'>
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color='primary'>
             Ok
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }

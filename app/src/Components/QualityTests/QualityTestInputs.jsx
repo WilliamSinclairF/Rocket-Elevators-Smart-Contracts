@@ -7,8 +7,14 @@ import {
   FormControlLabel,
   Container,
 } from '@material-ui/core';
+import SelectElement from '../shared/SelectElement';
+
+import buildings from '../../buildings.json';
+
+const buildingIds = buildings.map(b => b.building.id);
 
 export default function TestInputs({ inputs, labels }) {
+  console.log(buildingIds);
   const initialState = { ...inputs.state, _testPassed: false };
   const [inputState, setInputState] = useState(initialState);
   const { handleInputChange, handleSubmit } = inputs;
@@ -39,6 +45,7 @@ export default function TestInputs({ inputs, labels }) {
   return (
     <Container>
       <FormGroup>
+        <SelectElement data={buildingIds} prompt={'Select Building ID'} />
         {inputs.inputs.map((input, index) => {
           return input.internalType === 'bool' ? (
             <FormControlLabel
@@ -70,7 +77,12 @@ export default function TestInputs({ inputs, labels }) {
             />
           );
         })}
-        <Button onClick={handleDrizzleSubmit}>Add Record</Button>
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={handleDrizzleSubmit}>
+          Add Record
+        </Button>
       </FormGroup>
     </Container>
   );
