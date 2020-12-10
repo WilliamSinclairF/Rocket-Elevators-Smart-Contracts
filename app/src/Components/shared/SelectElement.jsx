@@ -19,14 +19,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SelectElement({ data, prompt }) {
+export default function SelectElement({ data, prompt, handleChange, state }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
-
-  const handleChange = event => {
-    setValue(Number(event.target.value) || '');
-  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -53,7 +49,8 @@ export default function SelectElement({ data, prompt }) {
             <Select
               labelId='demo-dialog-select-label'
               id='demo-dialog-select'
-              value={value}
+              value={state}
+              name={'_id'}
               onChange={handleChange}
               input={<Input />}>
               <MenuItem value=''>

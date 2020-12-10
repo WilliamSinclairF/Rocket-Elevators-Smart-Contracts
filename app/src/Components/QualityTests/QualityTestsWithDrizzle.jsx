@@ -27,7 +27,6 @@ export default ({ drizzle, drizzleState }) => {
           <QualityTestInputs
             inputs={inputs}
             labels={[
-              'Id',
               'Building address',
               'Operating permit',
               'Conformity certificate',

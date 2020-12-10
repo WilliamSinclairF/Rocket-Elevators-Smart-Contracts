@@ -8,7 +8,7 @@ const options = {
   },
   contracts: [QualityTest],
   events: {
-    QualityTest: ['TestCreated'],
+    QualityTest: ['BuildingCreated'],
   },
 };
 

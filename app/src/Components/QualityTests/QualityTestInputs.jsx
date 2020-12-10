@@ -45,7 +45,13 @@ export default function TestInputs({ inputs, labels }) {
   return (
     <Container>
       <FormGroup>
-        <SelectElement data={buildingIds} prompt={'Select Building ID'} />
+        <SelectElement
+          data={buildingIds}
+          prompt={'Select Building ID'}
+          handleChange={handleChange}
+          state={inputState._id}
+        />
+        {console.log(inputState)}
         {inputs.inputs.map((input, index) => {
           return input.internalType === 'bool' ? (
             <FormControlLabel
