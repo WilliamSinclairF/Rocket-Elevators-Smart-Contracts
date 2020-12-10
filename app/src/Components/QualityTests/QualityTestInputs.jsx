@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 
 export default function TestInputs({ inputs, labels }) {
-  const initialState = { ...inputs.state, _testPassed: false };
+  const initialState = { ...inputs.state, _isComplete: false };
   const [inputState, setInputState] = useState(initialState);
   const { handleInputChange, handleSubmit } = inputs;
 
@@ -19,20 +19,21 @@ export default function TestInputs({ inputs, labels }) {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     setInputState({
       ...inputState,
-      [e.target.name]: value,
+      [target.name]: value,
     });
   };
 
   const handleDrizzleSubmit = e => {
     handleSubmit(e);
     setInputState({
+      _id: '',
       _buildingAddress: '',
       _conformityCertificate: '',
       _elevatorBreakTest: '',
       _elevatorCableTest: '',
       _elevatorDoorTest: '',
       _operatingPermit: '',
-      _testPassed: false,
+      _isComplete: false,
     });
   };
 
@@ -46,7 +47,7 @@ export default function TestInputs({ inputs, labels }) {
               control={
                 <Checkbox
                   onChange={handleChange}
-                  checked={inputState._testPassed}
+                  checked={inputState._isComplete}
                   name={input.name}
                   key={input.name}
                 />
