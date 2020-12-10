@@ -21,12 +21,7 @@ contract QualityTest {
 }
 
     event TestCreated(
-    // Building
-    uint id,
-    bool testPassed,
-    string buildingAddress,
-    string operatingPermit,
-    string conformityCertificate
+    string _message
   );
 
   mapping(uint => Test) public tests;
@@ -52,7 +47,7 @@ contract QualityTest {
       elevatorDoorTest: _elevatorDoorTest, 
       elevatorCableTest: _elevatorCableTest, 
       elevatorBreakTest: _elevatorBreakTest}));
-    emit TestCreated(testCount, _testPassed, _buildingAddress, _operatingPermit, _conformityCertificate);
+    emit TestCreated("Record added successfully");
   }
     function getTests() public view returns(Test[] memory) {
     return testList;
