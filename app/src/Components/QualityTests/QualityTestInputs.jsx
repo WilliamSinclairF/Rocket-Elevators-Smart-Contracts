@@ -7,16 +7,25 @@ import {
   FormControlLabel,
   Container,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
 import SelectElement from '../shared/SelectElement';
 
 import buildings from '../../buildings.json';
 
 const buildingIds = buildings.map(b => b.building.id);
 
+const useStyles = makeStyles({
+  form: {
+    maxWidth: '50%',
+  },
+});
+
 export default function TestInputs({ inputs, labels }) {
   const initialState = { ...inputs.state, _isComplete: false };
   const [inputState, setInputState] = useState(initialState);
   const { handleInputChange, handleSubmit } = inputs;
+  const classes = useStyles();
 
   const handleChange = e => {
     handleInputChange(e);
@@ -44,45 +53,47 @@ export default function TestInputs({ inputs, labels }) {
 
   return (
     <Container>
-      <FormGroup>
+      <FormGroup class={classes.form}>
         <SelectElement
           data={buildingIds}
           prompt={'Select Building ID'}
           handleChange={handleChange}
           state={inputState._id}
         />
-        {console.log(inputState)}
-        {inputs.inputs.map((input, index) => {
-          return input.internalType === 'bool' ? (
-            <FormControlLabel
-              key={'label' + input.name}
-              control={
-                <Checkbox
-                  onChange={handleChange}
-                  checked={inputState._isComplete}
-                  name={input.name}
-                  key={input.name}
-                />
-              }
-              label={labels[index]}
-              labelPlacement='top'
-            />
-          ) : (
-            <FormControlLabel
-              key={'label' + input.name}
-              control={
-                <TextField
-                  name={input.name}
-                  key={input.name}
-                  value={inputState[`${input.name}`]}
-                  onChange={handleChange}
-                />
-              }
-              label={labels[index]}
-              labelPlacement='top'
-            />
-          );
-        })}
+        {console.log(inputs)}
+        {inputs.inputs
+          .filter(i => i.internalType !== 'uint256')
+          .map((input, index) => {
+            return input.internalType === 'bool' ? (
+              <FormControlLabel
+                key={'label' + input.name}
+                control={
+                  <Checkbox
+                    onChange={handleChange}
+                    checked={inputState._isComplete}
+                    name={input.name}
+                    key={input.name}
+                  />
+                }
+                label={labels[index]}
+                labelPlacement='top'
+              />
+            ) : (
+              <FormControlLabel
+                key={'label' + input.name}
+                control={
+                  <TextField
+                    name={input.name}
+                    key={input.name}
+                    value={inputState[`${input.name}`]}
+                    onChange={handleChange}
+                  />
+                }
+                label={labels[index]}
+                labelPlacement='top'
+              />
+            );
+          })}
         <Button
           variant='contained'
           color='primary'

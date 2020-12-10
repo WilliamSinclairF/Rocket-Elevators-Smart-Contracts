@@ -42,9 +42,7 @@ export default function QualityTestTable({ buildings }) {
             {descOrderTests.map(build => {
               return (
                 <TableRow key={'row' + build.id}>
-                  <TableCell key={'id' + build.id}>
-                    {build.id}
-                  </TableCell>
+                  <TableCell key={'id' + build.id}>{build.id}</TableCell>
                   <TableCell key={'address' + build.id}>
                     {build.buildingAddress}
                   </TableCell>
