@@ -53,7 +53,7 @@ export default function TestInputs({ inputs, labels }) {
 
   return (
     <Container>
-      <FormGroup class={classes.form}>
+      <FormGroup className={classes.form}>
         <SelectElement
           data={buildingIds}
           prompt={'Select Building ID'}
