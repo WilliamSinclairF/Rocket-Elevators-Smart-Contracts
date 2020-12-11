@@ -33,7 +33,7 @@ export default ({ drizzle, drizzleState }) => {
               'Elevator door test',
               'Elevator cable test',
               'Elevator break test',
-              'Is everything secure?',
+              'All Secure?',
             ]}
           />
         )}

@@ -6,6 +6,9 @@ contract QualityTest {
     Building[] public buildingList;
   
     struct Building {
+        // Employee
+        address employee;
+
         // Building
         uint id;
         string buildingAddress;
@@ -57,6 +60,7 @@ contract QualityTest {
 
         buildingList.push(
             Building({
+                employee: msg.sender,
                 id: _id,
                 buildingAddress: _buildingAddress,
                 operatingPermit: _operatingPermit,

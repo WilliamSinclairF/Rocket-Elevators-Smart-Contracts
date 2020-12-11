@@ -17,12 +17,7 @@ const App = () => {
       <DrizzleContext.Consumer>
         {drizzleContext => {
           const { drizzle, drizzleState, initialized } = drizzleContext;
-
-          if (!initialized) {
-            return <Loading />;
-          }
-
-          return (
+          return !initialized ? <Loading /> : (
             <>
               <ToastContainer />
               <QualityTestsWithDrizzle
