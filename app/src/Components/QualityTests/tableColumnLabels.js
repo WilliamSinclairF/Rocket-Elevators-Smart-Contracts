@@ -1,7 +1,14 @@
 const columns = [
-  { id: 'ID', label: 'ID', minWidth: 20 },
-  { id: 'testPassed', label: 'Test status', minWidth: 40 },
-  { id: 'buildingAddress', label: 'Building address', minWidth: 100 },
+  {
+    id: 'id',
+    label: 'ID',
+    minWidth: 20
+  },
+  {
+    id: 'buildingAddress',
+    label: 'Building address',
+    minWidth: 100
+  },
   {
     id: 'operatingPermit',
     label: 'Operating permit',

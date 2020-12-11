@@ -6,6 +6,9 @@ contract QualityTest {
     Building[] public buildingList;
   
     struct Building {
+        // Employee
+        address employee;
+
         // Building
         uint id;
         string buildingAddress;
@@ -23,12 +26,7 @@ contract QualityTest {
     }
 
     event BuildingCreated(
-        // Building
-        uint id,
-        bool testPassed,
-        string buildingAddress,
-        string operatingPermit,
-        string conformityCertificate
+        string _message
     );
 
     function createQualityTest(
@@ -57,6 +55,7 @@ contract QualityTest {
 
         buildingList.push(
             Building({
+                employee: msg.sender,
                 id: _id,
                 buildingAddress: _buildingAddress,
                 operatingPermit: _operatingPermit,
@@ -67,7 +66,7 @@ contract QualityTest {
             })
         );
 
-        emit BuildingCreated(_id, true, _buildingAddress, _operatingPermit, _conformityCertificate);
+        emit BuildingCreated("Record added successfully");
     }
 
     function getBuildings() public view returns (Building[] memory) {

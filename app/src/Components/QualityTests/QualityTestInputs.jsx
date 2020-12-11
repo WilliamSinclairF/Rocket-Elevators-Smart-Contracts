@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
+import SelectElement from '../shared/SelectElement';
+import buildings from '../../buildings.json';
 import {
   Checkbox,
   TextField,
   Button,
   FormGroup,
   FormControlLabel,
-  Container,
 } from '@material-ui/core';
-import SelectElement from '../shared/SelectElement';
-
-import buildings from '../../buildings.json';
 
 const buildingIds = buildings.map(b => b.building.id);
 
 export default function TestInputs({ inputs, labels }) {
-  console.log(buildingIds);
-  const initialState = { ...inputs.state, _testPassed: false };
+  const initialState = { ...inputs.state, _isComplete: false };
   const [inputState, setInputState] = useState(initialState);
   const { handleInputChange, handleSubmit } = inputs;
 
@@ -25,65 +22,82 @@ export default function TestInputs({ inputs, labels }) {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     setInputState({
       ...inputState,
-      [e.target.name]: value,
+      [target.name]: value,
     });
   };
 
   const handleDrizzleSubmit = e => {
     handleSubmit(e);
     setInputState({
+      _id: '',
       _buildingAddress: '',
       _conformityCertificate: '',
       _elevatorBreakTest: '',
       _elevatorCableTest: '',
       _elevatorDoorTest: '',
       _operatingPermit: '',
-      _testPassed: false,
+      _isComplete: false,
     });
   };
 
   return (
-    <Container>
+    <>
       <FormGroup>
-        <SelectElement data={buildingIds} prompt={'Select Building ID'} />
-        {inputs.inputs.map((input, index) => {
-          return input.internalType === 'bool' ? (
-            <FormControlLabel
-              key={'label' + input.name}
-              control={
-                <Checkbox
-                  onChange={handleChange}
-                  checked={inputState._testPassed}
-                  name={input.name}
-                  key={input.name}
-                />
-              }
-              label={labels[index]}
-              labelPlacement='top'
+        <div className="row">
+          <div className="col-lg-3 col-md-6 col-12 order-1">
+            <SelectElement
+              data={buildingIds}
+              handleChange={handleChange}
+              state={inputState._id}
             />
-          ) : (
-            <FormControlLabel
-              key={'label' + input.name}
-              control={
-                <TextField
-                  name={input.name}
-                  key={input.name}
-                  value={inputState[`${input.name}`]}
-                  onChange={handleChange}
-                />
-              }
-              label={labels[index]}
-              labelPlacement='top'
-            />
-          );
-        })}
-        <Button
-          variant='contained'
-          color='primary'
-          onClick={handleDrizzleSubmit}>
-          Add Record
-        </Button>
+          </div>
+          {console.log(inputs)}
+          {inputs.inputs
+            .filter(i => i.internalType !== 'uint256')
+            .map((input, index) => {
+              return input.internalType === 'bool' ? (
+                <div className="col-lg-3 col-md-6 col-12 order-last order-md-2 order-lg-last">
+                  <FormControlLabel
+                    key={'label' + input.name}
+                    control={
+                      <Checkbox
+                        size='medium'
+                        onChange={handleChange}
+                        checked={inputState._isComplete}
+                        name={input.name}
+                        key={input.name}
+                      />
+                    }
+                    label={labels[index]}
+                    labelPlacement='bottom'
+                  />
+                </div>
+              ) : (
+                <div className="col-lg-3 col-md-4 col-12 order-3">
+                  <FormControlLabel
+                    key={'label' + input.name}
+                    control={
+                      <TextField
+                        name={input.name}
+                        key={input.name}
+                        value={inputState[`${input.name}`]}
+                        onChange={handleChange}
+                      />
+                    }
+                    label={labels[index]}
+                    labelPlacement='bottom'
+                  />
+                </div>
+              );
+            })}
+        </div>
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={handleDrizzleSubmit}>
+            Add Record
+          </Button>
       </FormGroup>
-    </Container>
+    </>
   );
 }

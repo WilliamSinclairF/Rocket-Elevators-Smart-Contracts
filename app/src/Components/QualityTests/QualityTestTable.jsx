@@ -18,9 +18,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function QualityTestTable({ tests }) {
+export default function QualityTestTable({ buildings }) {
   const classes = useStyles();
-  const descOrderTests = [...tests].reverse();
+  const descOrderTests = [...buildings].reverse();
 
   return (
     <Paper className={classes.root}>
@@ -39,32 +39,27 @@ export default function QualityTestTable({ tests }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {descOrderTests.map(test => {
+            {descOrderTests.map(build => {
               return (
-                <TableRow key={'row' + test.id}>
-                  <TableCell key={'id' + test.id}>
-                    {test.id}
+                <TableRow key={'row' + build.id}>
+                  <TableCell key={'id' + build.id}>{build.id}</TableCell>
+                  <TableCell key={'address' + build.id}>
+                    {build.buildingAddress}
                   </TableCell>
-                  <TableCell key={'passed' + test.id}>
-                    {test.testPassed ? 'Test passed' : 'Test failed'}
+                  <TableCell key={'permit' + build.id}>
+                    {build.operatingPermit}
                   </TableCell>
-                  <TableCell key={'address' + test.id}>
-                    {test.buildingAddress}
+                  <TableCell key={'cert' + build.id}>
+                    {build.conformityCertificate}
                   </TableCell>
-                  <TableCell key={'permit' + test.id}>
-                    {test.operatingPermit}
+                  <TableCell key={'door' + build.id}>
+                    {build.elevatorDoorTest}
                   </TableCell>
-                  <TableCell key={'cert' + test.id}>
-                    {test.conformityCertificate}
+                  <TableCell key={'cable' + build.id}>
+                    {build.elevatorCableTest}
                   </TableCell>
-                  <TableCell key={'door' + test.id}>
-                    {test.elevatorDoorTest}
-                  </TableCell>
-                  <TableCell key={'cable' + test.id}>
-                    {test.elevatorCableTest}
-                  </TableCell>
-                  <TableCell key={'break' + test.id}>
-                    {test.elevatorBreakTest}
+                  <TableCell key={'break' + build.id}>
+                    {build.elevatorBreakTest}
                   </TableCell>
                 </TableRow>
               );
