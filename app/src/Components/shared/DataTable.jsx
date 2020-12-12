@@ -7,7 +7,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import columns from './tableColumnLabels';
 
 const useStyles = makeStyles({
   root: {
@@ -18,9 +17,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function QualityTestTable({ buildings }) {
+export default function DataTable({ data, columnLabels }) {
   const classes = useStyles();
-  const descOrderTests = [...buildings].reverse();
+  console.log(data);
+  const showInReverseOrder = [...data].reverse();
 
   return (
     <Paper className={classes.root}>
@@ -28,7 +28,7 @@ export default function QualityTestTable({ buildings }) {
         <Table stickyHeader aria-label='sticky table'>
           <TableHead>
             <TableRow>
-              {columns.map(column => (
+              {columnLabels.map(column => (
                 <TableCell
                   key={'col' + column.id}
                   align={column.align}
@@ -39,28 +39,12 @@ export default function QualityTestTable({ buildings }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {descOrderTests.map(build => {
+            {showInReverseOrder.map(d => {
               return (
-                <TableRow key={'row' + build.id}>
-                  <TableCell key={'id' + build.id}>{build.id}</TableCell>
-                  <TableCell key={'address' + build.id}>
-                    {build.buildingAddress}
-                  </TableCell>
-                  <TableCell key={'permit' + build.id}>
-                    {build.operatingPermit}
-                  </TableCell>
-                  <TableCell key={'cert' + build.id}>
-                    {build.conformityCertificate}
-                  </TableCell>
-                  <TableCell key={'door' + build.id}>
-                    {build.elevatorDoorTest}
-                  </TableCell>
-                  <TableCell key={'cable' + build.id}>
-                    {build.elevatorCableTest}
-                  </TableCell>
-                  <TableCell key={'break' + build.id}>
-                    {build.elevatorBreakTest}
-                  </TableCell>
+                <TableRow key={`row${d}`}>
+                  {d.map(d => (
+                    <TableCell key={`cell${d}`}>{d}</TableCell>
+                  ))}
                 </TableRow>
               );
             })}

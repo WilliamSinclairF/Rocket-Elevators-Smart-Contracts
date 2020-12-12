@@ -44,13 +44,13 @@ contract QualityTest {
 
         require (
             _isComplete &&
-            !doesExist(_id) &&
             !equal(_buildingAddress, empty) &&
             !equal(_operatingPermit, empty) &&
             !equal(_conformityCertificate, empty) &&
             !equal(_elevatorDoorTest, empty) &&
             !equal(_elevatorCableTest, empty) &&
             !equal(_elevatorBreakTest, empty)
+            
         );
 
         buildingList.push(

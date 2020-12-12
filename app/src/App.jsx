@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
+import { Route } from 'react-router-dom';
 import { DrizzleContext } from '@drizzle/react-plugin';
 import { Drizzle } from '@drizzle/store';
 import drizzleOptions from './drizzleOptions';
-import QualityTestsWithDrizzle from './Components/QualityTests/QualityTestsWithDrizzle';
 import { ToastContainer } from 'react-toastify';
 import store from './middleware/middleware';
-import 'react-toastify/dist/ReactToastify.css';
 import Loading from './Components/shared/Loading';
-import './App.css';
-import loadWeb3 from './loadWeb3';
+import { loadWeb3 } from './loadWeb3';
+import QualityTestDrizzle from './Components/QualityTests/QualityTestDrizzle';
+import MaterialProviderDrizzle from './Components/MaterialProvider/MaterialProviderDrizzle';
+import 'react-toastify/dist/ReactToastify.css';
+import './assets/App.css';
+import Home from './Components/Home/Home';
 
 const drizzle = new Drizzle(drizzleOptions, store);
 
@@ -24,13 +27,26 @@ const App = () => {
       <DrizzleContext.Consumer>
         {drizzleContext => {
           const { drizzle, drizzleState, initialized } = drizzleContext;
-          return !initialized ? <Loading /> : (
+          return !initialized ? (
+            <Loading />
+          ) : (
             <>
               <ToastContainer />
-              <QualityTestsWithDrizzle
-                drizzle={drizzle}
-                drizzleState={drizzleState}
-              />
+              <Route exact path='/quality'>
+                <QualityTestDrizzle
+                  drizzle={drizzle}
+                  drizzleState={drizzleState}
+                />
+              </Route>
+              <Route exact path='/materials'>
+                <MaterialProviderDrizzle
+                  drizzle={drizzle}
+                  drizzleState={drizzleState}
+                />
+              </Route>
+              <Route exact path='/'>
+                <Home />
+              </Route>
             </>
           );
         }}

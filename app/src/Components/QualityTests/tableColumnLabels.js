@@ -1,13 +1,18 @@
 const columns = [
   {
+    id: 'address',
+    label: 'Blockchain Address',
+    minWidth: 20,
+  },
+  {
     id: 'id',
     label: 'ID',
-    minWidth: 20
+    minWidth: 20,
   },
   {
     id: 'buildingAddress',
     label: 'Building address',
-    minWidth: 100
+    minWidth: 100,
   },
   {
     id: 'operatingPermit',
